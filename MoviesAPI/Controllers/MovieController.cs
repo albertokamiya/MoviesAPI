@@ -14,10 +14,10 @@ namespace MoviesAPI.Controllers
     [Route("[controller]")]
     public class MovieController : ControllerBase
     {
-        private MovieContext _context;
+        private AppDbContext _context;
         private IMapper _mapper;
 
-        public MovieController(MovieContext context, IMapper mapper)
+        public MovieController(AppDbContext context, IMapper mapper)
         {
             _context = context;
             _mapper = mapper;
@@ -52,7 +52,7 @@ namespace MoviesAPI.Controllers
         }
 
         [HttpPut("{id}")]
-        public IActionResult updateMovie(int id, [FromBody] UpdateMovieDto movieNewDataDto)
+        public IActionResult updateMovie(int id, [FromBody] UpdateAddressDto movieNewDataDto)
         {
             Movie movie = getMovieById(id);
             if(movie == null)

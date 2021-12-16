@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 
 namespace MoviesAPI.Models
 {
@@ -16,5 +17,7 @@ namespace MoviesAPI.Models
         [Required(ErrorMessage = "O campo duração é obrigatório.")]
         [Range(1,600, ErrorMessage = "A duração deve ser entre 1 a 600 minutos.")]
         public int Duration { get; set; }
+        [JsonIgnore]
+        public virtual List<Session> Sessions { get; set; }
     }
 }
